@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CatanCulator</title>
+        <link rel="stylesheet" href="catanStyles.css">
+    </head>
+
+    <body>
+        <div class="diceDiv">
+            <div class="rolls">
+                <button class="diceColor color1" id="dieBarb">BRB!</button>
+                <button class="diceColor color2" id="dieGreen">SCI</button>
+                <button class="diceColor color3" id="dieYellow">TRD</button>
+                <button class="diceColor color4" id="dieBlue">POL</button>
+            </div>            
+            <div class="rolls">
+                <button class="diceNum" id="die2">2</button>
+                <button class="diceNum" id="die3">3</button>
+                <button class="diceNum" id="die4">4</button>
+                <button class="diceNum" id="die5">5</button>
+                <button class="diceNum" id="die6">6</button>
+                <button class="diceNum" id="die7">7</button>
+            </div>
+            <div class="rolls">
+                <button class="diceNum" id="die8">8</button>
+                <button class="diceNum" id="die9">9</button>
+                <button class="diceNum" id="die10">10</button>
+                <button class="diceNum" id="die11">11</button>
+                <button class="diceNum" id="die12">12</button>
+            </div>
+        </div>
+
+        <div class="attack">
+            <hr/>
+            <h1>BARBARIAN ATTACK!</h1>
+            <div id="attackInfo1"></div>
+            <br>
+            <div id="attackInfo2"></div>
+            <div class="actionButtons">
+                <button id="closeButton" onclick="hideAttack();">CLOSE</button>
+            </div> 
+            <hr/>
+        </div>
+
+        <div class="winner">
+            <hr/>
+            <h1>WE HAVE A WINNER!</h1>
+            <label>Congratulations to:</label>
+            <span id="winner"></span>
+            <div class="actionButtons">
+                <button id="closeButton" onclick="hideWinner();">CLOSE</button>
+            </div> 
+            <hr/>
+        </div>
+
+        <div class="frequencies ">
+            <hr/>
+            <div style="text-align: center">
+                <h4>DICE ROLL FREQUENCIES</h4>
+                <label id="totalRolls"></label>
+            </div>
+            <table id="diceNumTable" class="freqTable">
+                <thead>
+                    <tr>
+                        <th>Die</th>
+                        <th>Cnt</th>
+                        <th>Pct</th>
+                        <th>Die</th>
+                        <th>Cnt</th>
+                        <th>Pct</th>
+                        <th>Exp</th>
+                        <th>Pct</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td></td>
+                        <td>12</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td></td>
+                        <td>11</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td></td>
+                        <td></td>
+                        <td>9</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr> 
+                    <tr>
+                        <td>6</td>
+                        <td></td>
+                        <td></td>
+                        <td>8</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>  
+                    <tr>
+                        <td>7</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>                                                                                                                        
+                </tbody>
+            </table>
+
+            <table id="diceColorTable" class="freqTable">
+                <thead>
+                    <tr>
+                        <th>Die</th>
+                        <th>Cnt</th>
+                        <th>Pct</th>
+                        <th>Exp</th>
+                        <th>Pct</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="color1">BRB</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="color2">SCI</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="color3">TRD</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="color4">POL</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>                                                            
+                </tbody>
+            </table>            
+            <div class="actionButtons" style="margin-top: 20px">
+                <button id="closeButton" onclick="hideFrequencies()">CLOSE</button>
+            </div>
+            <hr/>
+        </div>    
+<!-- 
+        <div class="fullnumpad">
+            <div>
+                <input type="text" readonly id="numpadValue"/> 
+                <button id="padClear">C</button>
+            </div>
+            <div>
+                <button id="7">7</button>
+                <button id="8">8</button>
+                <button id="9">9</button>
+            </div>
+            <div>
+                <button id="4">4</button>
+                <button id="5">5</button>
+                <button id="6">6</button>
+            </div>
+            <div>
+                <button id="1">1</button>
+                <button id="2">2</button>
+                <button id="3">3</button>
+            </div>            
+            <div>
+                <button id="sub" class="minus">&dash;</button>
+                <button id="0">0</button>
+                <button id="add" class="plus">+</button>
+            </div>
+            <div class="actionButtons">
+                <button onclick="keepNumPadValue(true)">Ok</button>
+                <button onclick="keepNumPadValue(false)">Cancel</button>
+            </div>             
+        </div> -->
+
+        <div class="numpad">
+            <div>
+                <input type="text" readonly id="numpadValue"/> 
+            </div>
+            <div>
+                <button id="sub" class="minus" onclick="bumpNumPadValue(-1)">&dash;</button>
+                <button id="add" class="plus" onclick="bumpNumPadValue(1)">+</button>
+            </div>
+            <!-- <div class="actionButtons">
+                <button onclick="keepNumPadValue(true)">Ok</button>
+                <button onclick="keepNumPadValue(false)">Cancel</button>
+            </div>              -->
+        </div>
+
+        <table class="board"></table>
+
+        <div id="mainButtons" class="actionButtons">
+            <button style="background-color:rgb(29, 178, 128)" onclick="newGame();">NEW GAME</button>
+            <button style="margin: 0 20px; background-color: black" onclick="barbarianAttack();" style="margin-left: 125px">ATTACK!</button>
+            <button style="width: 200px; color: black; background-color:rgba(144, 127, 127, 0.379)" onclick="showFrequencies()">Freqs</button>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="catanScript.js"></script>
+    </body>
+</html>
