@@ -6,7 +6,6 @@
 var playerNames = [
     "Tim Johnson",
     "Rhonda Johnson",
-    //"Kyle Szuta",
     "Jessie Johnson"
 ]
 var players;
