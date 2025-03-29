@@ -541,16 +541,19 @@ function hideAttack() {
 }
 
 function rollDice() {
-  $("diceSpan").hide();
+  $("#diceSpan").hide();
 
+  debugger;
+  var colorNum = Math.floor(Math.random() * 6) + 1;  
   var redNum = Math.floor(Math.random() * 6) + 1;  
   var stdNum = Math.floor(Math.random() * 6) + 1;
+  var colorString = colorNum < 4 ? "BLACK" : colorNum == 4 ? "BLUE" : colorNum == 5 ? "YELLOW" : "GREEN"; 
+
+  $("#rollDiceColor").text(colorString);
+  $("#rollDiceRed").text(redNum.toString());
+  $("#rollDiceStd").text(stdNum.toString());
     
-  $("rollDiceColor").text("color");
-  $("rollDiceRed").text(redNum.toString());
-  $("rollDiceStd").text(stdNum.toString());
-    
-  $("diceSpan").show(); 
+  $("#diceSpan").show(); 
 }
 
 //Update the UI using the latest underlying data
