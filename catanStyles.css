@@ -66,6 +66,10 @@ table, th, td {
     text-align: center;
 }
 
+.diceRollButtons {
+    margin-top: 20px;
+}
+
 .diceRollButtons label {
     margin-left: 30px;
     border-radius: 25px;
