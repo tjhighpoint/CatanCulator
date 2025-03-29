@@ -670,4 +670,16 @@ function updateBoard() {
             showWinner(player.firstName);
         }
     });
-}
+
+    function rollDice() {
+      $("spanDice").hide();
+
+      var recNum = Math.floor(Math.random() * 6) + 1;  
+      var stdNum = Math.floor(Math.random() * 6) + 1;
+        
+      $("rollDiceColor").text("color");
+      $("rollDiceRed").text(redNum.toString());
+      $("rollDiceStd").text(stdNum.toString());
+        
+      $("spanDice").show(); 
+    };
