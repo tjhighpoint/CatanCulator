@@ -66,6 +66,15 @@ table, th, td {
     text-align: center;
 }
 
+.diceRollButtons label {
+    margin-left: 30px;
+    border-radius: 25px;
+    color: white;
+    background-color: rgb(20, 92, 225);
+    font-weight: bold;
+    text-align: center;
+}
+
 .diceNum {
     border-radius: 25px;
     color: white;
