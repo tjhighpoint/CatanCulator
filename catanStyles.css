@@ -73,10 +73,9 @@ table, th, td {
 .diceRollButtons label {
     margin-left: 30px;
     width: 75px;
-    padding:20px;
-    border-radius: 25px;
+    padding:28px;
+    border-radius: 12px;
     color: white;
-    background-color: rgb(20, 92, 225);
     font-weight: bold;
     text-align: center;
 }
