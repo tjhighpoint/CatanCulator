@@ -540,6 +540,19 @@ function hideAttack() {
     $("#mainButtons").show();
 }
 
+function rollDice() {
+  $("diceSpan").hide();
+
+  var recNum = Math.floor(Math.random() * 6) + 1;  
+  var stdNum = Math.floor(Math.random() * 6) + 1;
+    
+  $("rollDiceColor").text("color");
+  $("rollDiceRed").text(redNum.toString());
+  $("rollDiceStd").text(stdNum.toString());
+    
+  $("diceSpan").show(); 
+}
+
 //Update the UI using the latest underlying data
 function updateBoard() {
     var totalCounts = updateTotalCounts();
@@ -672,15 +685,3 @@ function updateBoard() {
     });
 }
 
-function rollDice() {
-  $("diceSpan").hide();
-
-  var recNum = Math.floor(Math.random() * 6) + 1;  
-  var stdNum = Math.floor(Math.random() * 6) + 1;
-    
-  $("rollDiceColor").text("color");
-  $("rollDiceRed").text(redNum.toString());
-  $("rollDiceStd").text(stdNum.toString());
-    
-  $("diceSpan").show(); 
-}
