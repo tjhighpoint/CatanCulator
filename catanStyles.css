@@ -72,6 +72,7 @@ table, th, td {
 
 .diceRollButtons label {
     margin-left: 30px;
+    width: 30px
     padding:30px;
     border-radius: 25px;
     color: white;
@@ -81,11 +82,11 @@ table, th, td {
 }
 #rollDiceRed {
     color: white;
-    background-color: rgb(200, 32, 25);
+    background-color: rgb(250, 119, 113);
 }
 #rollDiceStd {
     color: black;
-    background-color: rgb(200, 200, 25);
+    background-color: rgb(240, 240, 163);
 }
 .diceNum {
     border-radius: 25px;
