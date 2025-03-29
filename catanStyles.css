@@ -79,7 +79,14 @@ table, th, td {
     font-weight: bold;
     text-align: center;
 }
-
+#rollDiceRed {
+    color: white;
+    background-color: rgb(200, 32, 25);
+}
+#rollDiceStd {
+    color: black;
+    background-color: rgb(200, 200, 25);
+}
 .diceNum {
     border-radius: 25px;
     color: white;
