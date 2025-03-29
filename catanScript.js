@@ -671,8 +671,9 @@ function updateBoard() {
         }
     });
 }
+
 function rollDice() {
-  $("spanDice").hide();
+  $("diceSpan").hide();
 
   var recNum = Math.floor(Math.random() * 6) + 1;  
   var stdNum = Math.floor(Math.random() * 6) + 1;
@@ -681,5 +682,5 @@ function rollDice() {
   $("rollDiceRed").text(redNum.toString());
   $("rollDiceStd").text(stdNum.toString());
     
-  $("spanDice").show(); 
-};
+  $("diceSpan").show(); 
+}
