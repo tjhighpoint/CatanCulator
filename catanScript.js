@@ -543,7 +543,7 @@ function hideAttack() {
 function rollDice() {
   $("diceSpan").hide();
 
-  var recNum = Math.floor(Math.random() * 6) + 1;  
+  var redNum = Math.floor(Math.random() * 6) + 1;  
   var stdNum = Math.floor(Math.random() * 6) + 1;
     
   $("rollDiceColor").text("color");
