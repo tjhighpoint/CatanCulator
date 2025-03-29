@@ -544,18 +544,21 @@ function rollDice() {
   $("#diceSpan").hide();
 
  playSound("DiceRoll1.m4a"); 
-    
-  debugger;
-  var colorNum = Math.floor(Math.random() * 6) + 1;   
-  var redNum = Math.floor(Math.random() * 6) + 1;  
-  var stdNum = Math.floor(Math.random() * 6) + 1;
-  var colorString = colorNum < 4 ? "black" : colorNum == 4 ? "blue" : colorNum == 5 ? "yellow" : "green"; 
 
-  $("#rollDiceColor").css("background-color", colorString);
-  $("#rollDiceRed").text(redNum.toString());
-  $("#rollDiceStd").text(stdNum.toString());
+ setTimeout (function () {
+      debugger;
+      var colorNum = Math.floor(Math.random() * 6) + 1;   
+      var redNum = Math.floor(Math.random() * 6) + 1;  
+      var stdNum = Math.floor(Math.random() * 6) + 1;
+      var colorString = colorNum < 4 ? "black" : colorNum == 4 ? "blue" : colorNum == 5 ? "yellow" : "green"; 
     
-  $("#diceSpan").show(); 
+      $("#rollDiceColor").css("background-color", colorString);
+      $("#rollDiceRed").text(redNum.toString());
+      $("#rollDiceStd").text(stdNum.toString());
+        
+      $("#diceSpan").show(); 
+  }, 1500);
+    
 }
 
 //Update the UI using the latest underlying data
