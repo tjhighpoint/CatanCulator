@@ -543,8 +543,10 @@ function hideAttack() {
 function rollDice() {
   $("#diceSpan").hide();
 
+ playSound("DiceRoll1.m4a"); 
+    
   debugger;
-  var colorNum = Math.floor(Math.random() * 6) + 1;  
+  var colorNum = Math.floor(Math.random() * 6) + 1;   
   var redNum = Math.floor(Math.random() * 6) + 1;  
   var stdNum = Math.floor(Math.random() * 6) + 1;
   var colorString = colorNum < 4 ? "BLACK" : colorNum == 4 ? "BLUE" : colorNum == 5 ? "YELLOW" : "GREEN"; 
