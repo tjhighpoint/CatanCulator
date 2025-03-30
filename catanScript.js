@@ -556,7 +556,12 @@ function rollDice() {
       $("#rollDiceColor").text(colorText);
       $("#rollDiceRed").text(redNum.toString());
       $("#rollDiceStd").text(stdNum.toString());
-        
+
+      index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
+      diceColorFrequencies[index]++;
+
+      diceNumFrequencies[redNum + stdNum]++;
+     
       $("#diceSpan").show(); 
   }, 1200);
     
