@@ -82,12 +82,11 @@ table, th, td {
     text-align: center;
 }
 #rollDiceTotal {
-    font-size: 60px;
+    font-size: 52px;
     color: black;
-    background-color: rgb(100, 100, 180);
+    background-color: rgb(194, 194, 236);
 }
 #rollDiceRed {
-    font-size: 52px;
     color: white;
     background-color: rgb(250, 75, 75);
 }
