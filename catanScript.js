@@ -555,6 +555,7 @@ function rollDice() {
       debugger;
       $("#rollDiceTotal").text(total.toString());
       $("#rollDiceColor").css("background-color", colorString);
+      $("#rollDiceColor").css("color", colorNum == 5 ? black : white);
       $("#rollDiceColor").text(colorNum < 4 ? "Barbarian" : redNum.toString());
       $("#rollDiceRed").text(redNum.toString());
       $("#rollDiceStd").text(stdNum.toString());
