@@ -546,13 +546,13 @@ function rollDice() {
  playSound("DiceRoll1.m4a"); 
 
  setTimeout (function () {
-      debugger;
       var colorNum = Math.floor(Math.random() * 6) + 1;   
       var redNum = Math.floor(Math.random() * 6) + 1;  
       var stdNum = Math.floor(Math.random() * 6) + 1;
       var colorString = colorNum < 4 ? "black" : colorNum == 4 ? "blue" : colorNum == 5 ? "yellow" : "green"; 
       var total = redNum + stdNum;
      
+      debugger;
       $("#rollDiceTotal").text(total.toString());
       $("#rollDiceColor").css("background-color", colorString);
       $("#rollDiceColor").text(colorNum < 4 ? "Barbarian" : redNum.toString());
