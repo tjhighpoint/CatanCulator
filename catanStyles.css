@@ -74,7 +74,7 @@ table, th, td {
     margin-left: 40px;
     width: 125px;
     padding:45px;
-    font-size: 32px;
+    font-size: 22px;
     border-radius: 12px;
     border: 3px solid black;
     color: white;
@@ -84,12 +84,13 @@ table, th, td {
 #rollDiceTotal {
     font-size: 52px;
     color: black;
-    background-color: rgb(194, 194, 236);
+    background-color: rgb(173, 75, 229);
 }
 #rollDiceColor {
     font-size: 52px;
 }
 #rollDiceRed {
+    margin-left: 55px;
     color: white;
     background-color: rgb(250, 75, 75);
 }
