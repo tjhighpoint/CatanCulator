@@ -84,13 +84,13 @@ table, th, td {
 #rollDiceTotal {
     font-size: 52px;
     color: black;
-    background-color: rgb(173, 75, 229);
+    background-color: rgb(50, 50, 50);
 }
 #rollDiceColor {
     font-size: 52px;
 }
 #rollDiceRed {
-    margin-left: 55px;
+    margin-left: 85px;
     color: white;
     background-color: rgb(250, 75, 75);
 }
