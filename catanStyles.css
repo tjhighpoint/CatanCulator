@@ -83,7 +83,7 @@ table, th, td {
 }
 #rollDiceTotal {
     font-size: 52px;
-    color: black;
+    color: white;
     background-color: rgb(50, 50, 50);
 }
 #rollDiceColor {
