@@ -67,11 +67,10 @@ table, th, td {
 }
 
 .diceRollButtons {
-    margin-top: 150px;
+    margin-top: 80px;
 }
 
 .diceRollButtons label {
-    margin-left: 40px;
     width: 125px;
     padding:30px;
     font-size: 22px;
@@ -82,11 +81,11 @@ table, th, td {
     text-align: center;
 }
 #rollDiceTotal {
-    margin-left: 50px;
+    margin-right: 50px;
     padding: 45px;
     font-size: 48px;
     color: white;
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(236 77 77);
 }
 #rollDiceColor {
     padding: 45px;
