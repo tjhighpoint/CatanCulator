@@ -552,7 +552,6 @@ function rollDice() {
       var colorString = colorNum < 4 ? "black" : colorNum == 4 ? "blue" : colorNum == 5 ? "yellow" : "green"; 
       var total = redNum + stdNum;
      
-      debugger;
       $("#rollDiceTotal").text(total.toString());
       $("#rollDiceColor").css("background-color", colorString);
       $("#rollDiceColor").css("color", colorNum == 5 ? "black" : "white");
