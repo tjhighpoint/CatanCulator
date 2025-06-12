@@ -301,19 +301,26 @@ function showWinner(playerName) {
     playSound("winner.mp3");
     $("#winner").text(playerName + "!!!");
     $(".winner").show();
-    $(".diceDiv").hide();
-    $(".board").hide();
-    $("#mainButtons").hide();
+    showBoard(false);
+}
+
+function showBoard(isHide) {
+    if (isHide) {
+        $(".diceDiv").hide();
+        $(".board").hide();
+        $("#mainButtons").hide();    
+    }
+    else {
+        if (disableDice)
+            $(".diceDiv").show();
+        $(".board").show();
+        $("#mainButtons").show();          
+    }
 }
 
 function hideWinner() {
     $(".winner").hide();
-
-    if (!disableDice) {
-        $(".diceDiv").show();
-    }
-    $(".board").show();
-    $("#mainButtons").show();
+    showBoard(true);
 }
 
 //Used when showing numPad
@@ -517,13 +524,10 @@ function barbarianAttack() {
     }
 
     //Show the info
-        $("#attackInfo1").text(attackInfo[0]);
-        $("#attackInfo2").text(attackInfo[1]);
-        $(".attack").show();
-        $(".diceDiv").hide();
-        $(".board").hide();
-        $("#mainButtons").hide();
-    
+    $("#attackInfo1").text(attackInfo[0]);
+    $("#attackInfo2").text(attackInfo[1]);
+    $(".attack").show();
+    showBoard(false);
 
     //Now reset all activeKnight counts to 0
     $.each(players, function (index, player) {
@@ -535,11 +539,7 @@ function barbarianAttack() {
 
 function hideAttack() {
     $(".attack").hide();
-    if (!disableDice) {
-        $(".diceDiv").show();
-    }    
-    $(".board").show();
-    $("#mainButtons").show();
+    showBoard(true);
 }
 
 function rollDice() {
