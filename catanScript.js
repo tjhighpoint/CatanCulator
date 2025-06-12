@@ -313,7 +313,7 @@ function showBoard(isShow) {
         $("#mainButtons").hide();    
     }
     else {
-        if (disableDice) {
+        if (!disableDice) {
             $(".diceDiv").show();
         }
         $("#diceRoller").show();
