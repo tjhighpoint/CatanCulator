@@ -305,6 +305,7 @@ function showWinner(playerName) {
 }
 
 function showBoard(isShow) {
+    debugger;
     $("diceRollButtons").hide();
     $("#diceSpan").hide();
 
