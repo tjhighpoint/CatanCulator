@@ -6,8 +6,10 @@
 var playerNames = [
     "Tim Johnson",
     "Rhonda Johnson",
+    "Michael Johnson",
+    "Devony DiMattia"
     //"Kyle Szuta",
-    "Jessie Johnson"
+    //"Jessie Johnson"
 ]
 var players;
 
