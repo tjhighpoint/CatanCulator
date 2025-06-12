@@ -124,10 +124,7 @@ $(function () {
 });
 
 function setupEmptyBoard() {
-    //Hide dice panel if requested
-    if (disableDice) {
-        $(".diceDiv").hide();
-    }
+    showBoard(true);
         
     $(".board").append("<thead><tr><th></th></tr></thead><tbody></tbody>");
     
