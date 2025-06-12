@@ -305,10 +305,12 @@ function showWinner(playerName) {
 }
 
 function showBoard(isShow) {
+    $("diceRollButtons").hide();
+    $("#diceSpan").hide();
+
     if (!isShow) {
         $(".diceDiv").hide();
         $("#diceRoller").hide();
-        $("diceRollButtons").hide();
         $(".board").hide();
         $("#mainButtons").hide();    
     }
@@ -317,7 +319,6 @@ function showBoard(isShow) {
             $(".diceDiv").show();
         }
         $("#diceRoller").show();
-        $("diceRollButtons").hide();
         $(".board").show();
         $("#mainButtons").show();          
     }
