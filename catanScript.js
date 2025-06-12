@@ -306,14 +306,15 @@ function showWinner(playerName) {
 
 function showBoard(isShow) {
     if (!isShow) {
-        $("#diceRoller").hide();
         $(".diceDiv").hide();
+        $("#diceRoller").hide();
         $(".board").hide();
         $("#mainButtons").hide();    
     }
     else {
-        if (disableDice)
+        if (disableDice) {
             $(".diceDiv").show();
+        }
         $("#diceRoller").show();
         $(".board").show();
         $("#mainButtons").show();          
