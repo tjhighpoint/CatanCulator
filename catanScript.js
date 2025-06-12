@@ -123,9 +123,7 @@ $(function () {
     newGame();
 });
 
-function setupEmptyBoard() {
-    showBoard(true);
-        
+function setupEmptyBoard() {        
     $(".board").append("<thead><tr><th></th></tr></thead><tbody></tbody>");
     
     //Create player-names row
@@ -215,6 +213,8 @@ function newGame() {
         player.hasLongestRoad = false;
     });
 
+    showBoard(true);
+    
     updateBoard();
 }
 
