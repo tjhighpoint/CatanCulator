@@ -547,11 +547,13 @@ function hideAttack() {
 }
 
 function rollDice() {
-  $("#diceSpan").hide();
+    $("#diceSpan").hide();
+    $("#ytzcup").show();
+    playSound("DiceRoll1.m4a"); 
 
- playSound("DiceRoll1.m4a"); 
-
- setTimeout (function () {
+    setTimeout (function () {
+      $("#ytzcup").hide();
+        
       var colorNum = Math.floor(Math.random() * 6) + 1;   
       var redNum = Math.floor(Math.random() * 6) + 1;  
       var stdNum = Math.floor(Math.random() * 6) + 1;
@@ -570,7 +572,7 @@ function rollDice() {
       diceNumFrequencies[total]++;
      
       $("#diceSpan").show(); 
-  }, 900);
+    }, 800);
     
 }
 
