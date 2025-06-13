@@ -547,7 +547,7 @@ function hideAttack() {
 
 function rollDice() {
     $(".diceRollButtons").hide();
-    $("#diceSpan").hide();
+    //$("#diceSpan").hide();
     $("#ytzcup").show();
     playSound("DiceRoll1.m4a"); 
 
@@ -570,7 +570,7 @@ function rollDice() {
       diceNumFrequencies[total]++;
 
       $(".diceRollButtons").show();
-      $("#diceSpan").show(); 
+      //$("#diceSpan").show(); 
       $("#ytzcup").hide();
         
     }, 900);
