@@ -302,7 +302,6 @@ function showWinner(playerName) {
 }
 
 function showBoard(isShow) {
-    debugger;
     $(".diceRollButtons").hide();
     $("#diceSpan").hide();
 
@@ -568,7 +567,8 @@ function rollDice() {
       index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
       diceColorFrequencies[index]++;
       diceNumFrequencies[total]++;
-     
+
+      debugger;
       $("#diceSpan").show(); 
       //$("#ytzcup").hide();
         
