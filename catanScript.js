@@ -548,7 +548,7 @@ function hideAttack() {
 
 function rollDice() {
     $("#diceSpan").hide();
-    $("#ytzcup").show();
+    //$("#ytzcup").show();
     playSound("DiceRoll1.m4a"); 
 
     setTimeout (function () {
