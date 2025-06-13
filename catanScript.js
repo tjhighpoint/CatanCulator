@@ -546,8 +546,9 @@ function hideAttack() {
 }
 
 function rollDice() {
+    $(".diceRollButtons").hide();
     $("#diceSpan").hide();
-    //$("#ytzcup").show();
+    $("#ytzcup").show();
     playSound("DiceRoll1.m4a"); 
 
     setTimeout (function () {
@@ -568,9 +569,9 @@ function rollDice() {
       diceColorFrequencies[index]++;
       diceNumFrequencies[total]++;
 
-      debugger;
+      $(".diceRollButtons").show();
       $("#diceSpan").show(); 
-      //$("#ytzcup").hide();
+      $("#ytzcup").hide();
         
     }, 900);
     
