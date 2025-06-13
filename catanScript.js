@@ -570,7 +570,7 @@ function rollDice() {
       diceNumFrequencies[total]++;
      
       $("#diceSpan").show(); 
-      $("#ytzcup").hide();
+      //$("#ytzcup").hide();
         
     }, 900);
     
