@@ -583,7 +583,7 @@ function rollDice() {
 function resetElapsedTime() {
     startTime = new Date();
     setInterval(function() {
-      updatedElapsedTime();
+      updateElapsedTime();
     }, 1000);
 }
 
