@@ -592,8 +592,8 @@ function updateElapsedTime() {
     var elapsedTimeMs = now - startTime;
     var elapsedTimeSec = elapsedTimeMs / 1000;
     var elapsedTimeH = Math.floor(elapsedTimeSec / 3600);
-    var elapsedTimeM = Math.floor((elapsedTimeSec % 3600) / 60);
-    $("#elapsedTime").text(elapsedTimeH.toString() + ":" + elapsedTimeM.toString());
+    var elapsedTimeM = Math.floor(elapsedTimeSec % 3600);
+    $("#elapsedTime").text(String(elapsedTimeH).padStart(2, '0') + ":" + String(elapsedTimeM).padStart(2, '0');
     debugger;
 }
 
