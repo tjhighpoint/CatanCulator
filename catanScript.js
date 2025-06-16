@@ -1,5 +1,7 @@
 //TODO - want a Settings button on UI to set up players, toggle switches, etc
 
+var startTime = new Date();
+
 //Add/remove player names here as needed
 //More than 4 will appear as abbreviations only
 //Will be automatically sorted in UI
@@ -213,6 +215,8 @@ function newGame() {
         player.hasLongestRoad = false;
     });
 
+    resetElapsedTime();
+    
     showBoard(true);
     
     updateBoard();
@@ -574,8 +578,24 @@ function rollDice() {
       $("#ytzcup").hide();
         
     }, 900);
-    
 }
+
+function resetElapsedTime() {
+    startTime = new Date();
+    setInterval(function() {
+      updatedElapsedTime();
+    }, 1000);
+}
+
+function updateElapsedTime() {
+    var now = Date.now();
+    var elapsedTimeMs = now - startTime;
+    var elapsedTimeSec = elapsedTimeMs / 1000;
+    var elapsedTimeH = (int) (elapsedTimeSec / 3600);
+    var elapsedTimeM = (int) ((elapsedTimeSec % 3600) / 60);
+    $("#elapsedTime").html(elapsedTimeH.toString() + ":" + elapsedTimeM.toString());
+}
+
 
 //Update the UI using the latest underlying data
 function updateBoard() {
