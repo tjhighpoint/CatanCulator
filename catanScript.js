@@ -125,7 +125,11 @@ $(function () {
     newGame();
 
     //TEST DICE ROLLS
-
+    
+    for (i=2; i<12; i++) {
+        diceNumFrequencies[i] = 0;
+    };
+    
     for (i=0; i<100000; i++) {
       var colorNum = Math.floor(Math.random() * 6) + 1;   
       var redNum = Math.floor(Math.random() * 6) + 1;  
