@@ -123,6 +123,22 @@ $(function () {
     setupEmptyBoard();
 
     newGame();
+
+    //TEST DICE ROLLS
+
+    for (i=0; i<100000; i++) {
+      var colorNum = Math.floor(Math.random() * 6) + 1;   
+      var redNum = Math.floor(Math.random() * 6) + 1;  
+      var stdNum = Math.floor(Math.random() * 6) + 1;
+      var total = redNum + stdNum;
+     
+      index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
+      diceColorFrequencies[index]++;
+      diceNumFrequencies[total]++;
+    };
+    debugger;
+}    
+    
 });
 
 function setupEmptyBoard() {        
