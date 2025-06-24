@@ -127,7 +127,7 @@ $(function () {
     //TEST DICE ROLLS
     var testRolls = true;
     if (testRolls) {
-        for (i=2; i<12; i++) {
+        for (i=2; i<13; i++) {
             diceNumFrequencies[i] = 0;
         };
         
@@ -143,10 +143,10 @@ $(function () {
         };
     
         var totalRolls = 0;
-        for (i=2; i<12; i++) {
+        for (i=2; i<13; i++) {
             totalRolls += diceNumFrequencies[i];
         };
-        for (i=2; i<12; i++) {
+        for (i=2; i<13; i++) {
             var cnt = diceNumFrequencies[i];
             var pct = cnt / totalRolls * 100.0; 
             pct = Math.trunc(pct * 10) / 10;
