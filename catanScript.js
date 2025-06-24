@@ -137,8 +137,6 @@ $(function () {
       diceNumFrequencies[total]++;
     };
     debugger;
-}    
-    
 });
 
 function setupEmptyBoard() {        
