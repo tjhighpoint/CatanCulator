@@ -150,8 +150,8 @@ $(function () {
         var pct = cnt / totalRolls * 100.0; 
         pct = Math.trunc(pct * 10) / 10;
         var index = i < 8 ? i : 4 - (i % 6);
-        var expected = expectedDiceNumFrequencies[index];
-        console.log(i.toString() + ". " + pct.toString() + "% (expected: " + expectedPct.toString() + ")");
+        var expectedPct = expectedDiceNumFrequencies[index];
+        console.log(i.toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + ")");
     }
     debugger;
 });
