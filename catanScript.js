@@ -125,35 +125,37 @@ $(function () {
     newGame();
 
     //TEST DICE ROLLS
+    var testRolls = true;
+    if (testRolls) {
+        for (i=2; i<12; i++) {
+            diceNumFrequencies[i] = 0;
+        };
+        
+        for (i=0; i<500000; i++) {
+          var colorNum = Math.floor(Math.random() * 6) + 1;   
+          var redNum = Math.floor(Math.random() * 6) + 1;  
+          var stdNum = Math.floor(Math.random() * 6) + 1;
+          var total = redNum + stdNum;
+         
+          index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
+          diceColorFrequencies[index]++;
+          diceNumFrequencies[total]++;
+        };
     
-    for (i=2; i<12; i++) {
-        diceNumFrequencies[i] = 0;
-    };
-    
-    for (i=0; i<100000; i++) {
-      var colorNum = Math.floor(Math.random() * 6) + 1;   
-      var redNum = Math.floor(Math.random() * 6) + 1;  
-      var stdNum = Math.floor(Math.random() * 6) + 1;
-      var total = redNum + stdNum;
-     
-      index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
-      diceColorFrequencies[index]++;
-      diceNumFrequencies[total]++;
-    };
-
-    var totalRolls = 0;
-    for (i=2; i<12; i++) {
-        totalRolls += diceNumFrequencies[i];
-    };
-    for (i=2; i<12; i++) {
-        var cnt = diceNumFrequencies[i];
-        var pct = cnt / totalRolls * 100.0; 
-        pct = Math.trunc(pct * 10) / 10;
-        var index = i < 8 ? i : 8 - (i % 6);
-        var expectedPct = expectedDiceNumFrequencies[index - 2];
-        console.log(i.toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + ")");
+        var totalRolls = 0;
+        for (i=2; i<12; i++) {
+            totalRolls += diceNumFrequencies[i];
+        };
+        for (i=2; i<12; i++) {
+            var cnt = diceNumFrequencies[i];
+            var pct = cnt / totalRolls * 100.0; 
+            pct = Math.trunc(pct * 10) / 10;
+            var index = i < 8 ? i : 8 - (i % 6);
+            var expectedPct = expectedDiceNumFrequencies[index - 2];
+            console.log(i.toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + ")");
+        }
+        debugger;
     }
-    debugger;
 });
 
 function setupEmptyBoard() {        
