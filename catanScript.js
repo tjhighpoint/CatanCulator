@@ -136,6 +136,16 @@ $(function () {
       diceColorFrequencies[index]++;
       diceNumFrequencies[total]++;
     };
+
+    var totalRolls = 0;
+    for (i=2; i<12; i++) {
+        totalRolls += diceNumFrequencies[i];
+    };
+    for (i=2; i<12; i++) {
+        var cnt = diceNumFrequencies[i];
+        var pct = cnt / totalRolls * 100.0; 
+        console.log(i.toString() + ". " + pct.toString() + "%");
+    }
     debugger;
 });
 
