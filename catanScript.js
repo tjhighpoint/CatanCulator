@@ -125,7 +125,7 @@ $(function () {
     newGame();
 
     //TEST DICE ROLLS
-    var testRolls = true;
+    var testRolls = false;
     if (testRolls) {
         for (i=2; i<13; i++) {
             diceNumFrequencies[i] = 0;
