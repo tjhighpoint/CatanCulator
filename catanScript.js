@@ -125,12 +125,8 @@ $(function () {
     newGame();
 
     //TEST DICE ROLLS
-    var testRolls = false;
+    var testRolls = true;
     if (testRolls) {
-        for (i=2; i<13; i++) {
-            diceNumFrequencies[i] = 0;
-        };
-        
         for (i=0; i<500000; i++) {
           var colorNum = Math.floor(Math.random() * 6) + 1;   
           var redNum = Math.floor(Math.random() * 6) + 1;  
@@ -139,14 +135,14 @@ $(function () {
          
           index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
           diceColorFrequencies[index]++;
-          diceNumFrequencies[total]++;
+          diceNumFrequencies[total - 2]++;
         };
     
         var totalRolls = 0;
-        for (i=2; i<13; i++) {
+        for (i=0; i<12; i++) {
             totalRolls += diceNumFrequencies[i];
         };
-        for (i=2; i<13; i++) {
+        for (i=0; i<12; i++) {
             var cnt = diceNumFrequencies[i];
             var pct = cnt / totalRolls * 100.0; 
             pct = Math.trunc(pct * 10) / 10;
