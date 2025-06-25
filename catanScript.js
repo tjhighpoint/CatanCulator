@@ -146,7 +146,7 @@ $(function () {
             var cnt = diceNumFrequencies[i];
             var pct = cnt / totalRolls * 100.0; 
             pct = Math.trunc(pct * 10) / 10;
-            var index = i < 8 ? i : 8 - (i % 6);
+            var index = i < 6 ? i : 6 - (i % 6);
             var expectedPct = expectedDiceNumFrequencies[index - 2];
             console.log( (i+2).toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + "%)");
         }
