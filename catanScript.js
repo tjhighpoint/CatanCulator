@@ -147,7 +147,7 @@ $(function () {
             var pct = cnt / totalRolls * 100.0; 
             pct = Math.trunc(pct * 10) / 10;
             var index = i < 6 ? i : 6 - (i % 6);
-            var expectedPct = expectedDiceNumFrequencies[index - 2];
+            var expectedPct = expectedDiceNumFrequencies[index];
             console.log( (i+2).toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + "%)");
         }
         debugger;
