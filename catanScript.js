@@ -139,16 +139,16 @@ $(function () {
         };
     
         var totalRolls = 0;
-        for (i=0; i<12; i++) {
+        for (i=0; i<11; i++) {
             totalRolls += diceNumFrequencies[i];
         };
-        for (i=0; i<12; i++) {
+        for (i=0; i<11; i++) {
             var cnt = diceNumFrequencies[i];
             var pct = cnt / totalRolls * 100.0; 
             pct = Math.trunc(pct * 10) / 10;
             var index = i < 8 ? i : 8 - (i % 6);
             var expectedPct = expectedDiceNumFrequencies[index - 2];
-            console.log(i.toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + "%)");
+            console.log( (i+2).toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + "%)");
         }
         debugger;
     }
