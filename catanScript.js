@@ -479,7 +479,7 @@ function updateTotalCounts() {
         if (player.totalPoints > highScore)
             highScore = player.totalPoints;        
             
-        if (player.activeKnightCount < lowestActiveKnightCount)
+        if ( (player.activeKnightCount < lowestActiveKnightCount) && (player.cityCount > 0) )
             lowestActiveKnightCount = player.activeKnightCount;
 
         if (player.activeKnightCount > highestActiveKnightCount)
