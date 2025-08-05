@@ -513,7 +513,7 @@ function showMetros(targetPlayer, increment) {
     $("#divMetro_blue").hide();
     $("#divMetro_green").hide();
 
-    $.each(metropolsOwners, function(color, assignedPlayer) {
+    $.each(metropolisOwners, function(color, assignedPlayer) {
         var divColor = "#divMetro_" + color;
         if (increment == 1 || assignedPlayer == targetPlayer) {
             $(divColor).show();
@@ -578,7 +578,7 @@ function updateTotalCounts() {
 
 function getMetropolisCount(player) {
     var playerMetropolisCount = 0;
-    $.each(metropolsOwners, function(color, assignedPlayer) {
+    $.each(metropolisOwners, function(color, assignedPlayer) {
         if (assignedPlayer == player) {
             playerMetropolisCount++;
         }
