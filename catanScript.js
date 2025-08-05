@@ -489,7 +489,7 @@ function updateMetropolisCounts(targetPlayer, increment) {
         }            
         //If only 1 metro, remove targetPlayer as owner
         else if (myMetros.length == 1) {
-            metropolisOwners[myMetros[0]) = null;
+            metropolisOwners[myMetros[0]] = null;
         }
         //Else show my metros so user can choose which one to remove
         else {
