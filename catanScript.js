@@ -56,6 +56,18 @@ var decInProgress = false;  //Used only for context-menu special case to prevent
 //TODO: support other objects used in expansions and extensions 
 
 $(function () {
+
+    $("#divMetroSelector").dialog({
+        autoOpen: false,
+        width: 500,
+        modal: true,
+        closeOnEscape: true,
+        resizable: false,
+        draggable: true,
+        //dialogClass: 'popup1',
+        title: 'Send a Passdown',
+    });
+    
     //Create player objects with full names or abbreviations-only if > 4
     players = [];
     playerAbbrevs = [];
@@ -502,12 +514,12 @@ function showMetros(targetPlayer, increment) {
         $(divColor + "_name").text = increment == -1 ? "" : targetPlayer.firstName;
     }
     
-    $("#divMetroSelector").show();
+    $("#divMetroSelector").dialog("open");
 }
 
 function updateMetropolis(color, targetPlayer) {
     metropolisOwners[color] = targetPlayer;
-    $("#div_MetroSelector").hide();
+    $("#divMetroSelector").dialog("close");
 }
 
 function updateTotalCounts() {
