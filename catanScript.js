@@ -66,7 +66,7 @@ $(function () {
         resizable: false,
         draggable: true,
         //dialogClass: 'popup1',
-        title: 'Send a Passdown',
+        title: 'CHOOSE A METROPOLIS COLOR',
     });
     
     //Create player objects with full names or abbreviations-only if > 4
