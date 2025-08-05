@@ -14,6 +14,7 @@ var playerNames = [
     "Jessie Johnson"
 ]
 var players;
+var selectedPlayer;
 
 //Need to bake in whatever the rules are for determining pointsToWin - depends on extensions/expansions and
 //number players I think.
@@ -404,7 +405,7 @@ function keepNumPadValue(shouldKeep) {
 function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
     decInProgress = true;
     var playerIndex = cell[0].cellIndex - 1;
-    var targetPlayer = players[playerIndex];
+    selectedPlayer = players[playerIndex];
     var newValue = 0;
 
     var rowIndex = cell.parent()[0].rowIndex - 1;
@@ -420,51 +421,57 @@ function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
 
     switch (rowIndex) {
         case 0:
-            //enableNumPad ? newValue : targetPlayer.settlementCount + increment;
-            if (increment == -1 && targetPlayer.settlementCount == 0) {
+            //enableNumPad ? newValue : selectedPlayer.settlementCount + increment;
+            if (increment == -1 && selectedPlayer.settlementCount == 0) {
                 alert("Sorry, you have no Settlements left!");
             }
             else
-                targetPlayer.settlementCount = enableNumPad ? newValue : targetPlayer.settlementCount + increment;
+                selectedPlayer.settlementCount = enableNumPad ? newValue : selectedPlayer.settlementCount + increment;
             break;
+            
         case 1:     //Add a City means lose a Settlement, and vice-versa
-            if (increment == 1 && targetPlayer.settlementCount == 0) {
+            if (increment == 1 && selectedPlayer.settlementCount == 0) {
                 alert("Sorry, you can't upgrade to a City - you have no Settlements!");
             }
-            else if (increment == -1 && targetPlayer.cityCount == 0) {
+            else if (increment == -1 && selectedPlayer.cityCount == 0) {
                 alert("Sorry, you have no Cities left!");
             }               
             else {
-                targetPlayer.cityCount+= increment;
-                targetPlayer.settlementCount-= increment;
+                selectedPlayer.cityCount+= increment;
+                selectedPlayer.settlementCount-= increment;
                 }
-            break;         
+            break;      
+            
         case 2:
-            if (increment == -1 && targetPlayer.activeKnightCount == 0) {
+            if (increment == -1 && selectedPlayer.activeKnightCount == 0) {
                 alert("Sorry, you have no Knights left!");
             }            
             else
-                targetPlayer.activeKnightCount+= increment;
+                selectedPlayer.activeKnightCount+= increment;
             break;
+            
         case 3:
-            updateMetropolisCounts(targetPlayer, increment);
+            updateMetropolisCounts(selectedPlayer, increment);
             break;
+            
         case 4:
-            targetPlayer.victoryPoints+= increment;
+            selectedPlayer.victoryPoints+= increment;
             break;
+            
         case 5:
             $.each(players, function (index, player) {
                 player.hasMerchant = false;
             });               
             if (increment == 1) 
-                targetPlayer.hasMerchant = true;
+                selectedPlayer.hasMerchant = true;
             break;
+            
         case 6:
             $.each(players, function (index, player) {
                 player.hasLongestRoad = false;
             }); 
             if (increment == 1) 
-                targetPlayer.hasLongestRoad = true;
+                selectedPlayer.hasLongestRoad = true;
             break;
     }        
 
@@ -506,9 +513,9 @@ function showMetros(targetPlayer, increment) {
     $("#divMetro_blue").hide();
     $("#divMetro_green").hide();
 
-    metropolisOwners.foreach (color => {
+    $.each(metropolsOwners, function(color, assignedPlayer) {
         var divColor = "#divMetro_" + color;
-        if (increment == 1 || metropolisOwners[color] == targetPlayer) {
+        if (increment == 1 || assignedPlayer == targetPlayer) {
             $(divColor).show();
         }
         $(divColor + "_name").text = increment == -1 ? "" : targetPlayer.firstName;
@@ -517,8 +524,8 @@ function showMetros(targetPlayer, increment) {
     $("#divMetroSelector").dialog("open");
 }
 
-function updateMetropolis(color, targetPlayer) {
-    metropolisOwners[color] = targetPlayer;
+function updateMetropolis(color) {
+    metropolisOwners[color] = selectedPlayer;
     $("#divMetroSelector").dialog("close");
 }
 
@@ -571,8 +578,8 @@ function updateTotalCounts() {
 
 function getMetropolisCount(player) {
     var playerMetropolisCount = 0;
-    metropolisOwners.foreach (color => {
-        if (metropolisOwners[color] == player) {
+    $.each(metropolsOwners, function(color, assignedPlayer) {
+        if (assignedPlayer == player) {
             playerMetropolisCount++;
         }
     });
