@@ -60,7 +60,7 @@ $(function () {
 
     $("#divMetroSelector").dialog({
         autoOpen: false,
-        width: 500,
+        width: 650,
         modal: true,
         closeOnEscape: true,
         resizable: false,
@@ -518,7 +518,7 @@ function showMetros(targetPlayer, increment) {
         if (increment == 1 || assignedPlayer == targetPlayer) {
             $(divColor).show();
         }
-        $(divColor + "_name").text = increment == -1 ? "(available)" : targetPlayer.firstName;
+        $(divColor + "_name").text((increment == -1 ? "(available)" : targetPlayer.firstName));
     });
     
     $("#divMetroSelector").dialog("open");
