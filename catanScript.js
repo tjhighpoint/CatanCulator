@@ -506,13 +506,13 @@ function showMetros(targetPlayer, increment) {
     $("#divMetro_blue").hide();
     $("#divMetro_green").hide();
 
-    for each (var color in metropolisOwners) {
+    metropolisOwners.foreach (color => {
         var divColor = "#divMetro_" + color;
         if (increment == 1 || metropolisOwners[color] == targetPlayer) {
             $(divColor).show();
         }
         $(divColor + "_name").text = increment == -1 ? "" : targetPlayer.firstName;
-    }
+    });
     
     $("#divMetroSelector").dialog("open");
 }
@@ -571,11 +571,12 @@ function updateTotalCounts() {
 
 function getMetropolisCount(player) {
     var playerMetropolisCount = 0;
-    for each (var color in metropolisOwners) {
+    metropolisOwners.foreach (color => {
         if (metropolisOwners[color] == player) {
             playerMetropolisCount++;
         }
-    }
+    });
+    
     return playerMetropolisCount;
 }
 
