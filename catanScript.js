@@ -518,7 +518,7 @@ function showMetros(targetPlayer, increment) {
         if (increment == 1 || assignedPlayer == targetPlayer) {
             $(divColor).show();
         }
-        $(divColor + "_name").text((increment == -1 ? "(available)" : targetPlayer.firstName));
+        $(divColor + "_name").text((increment == -1 ? "" : assignedPlayer == null ? "(available)" : assignedPlayer.firstName));
     });
     
     $("#divMetroSelector").dialog("open");
