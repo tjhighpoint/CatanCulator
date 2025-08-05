@@ -527,6 +527,7 @@ function showMetros(targetPlayer, increment) {
 function updateMetropolis(color) {
     metropolisOwners[color] = selectedPlayer;
     $("#divMetroSelector").dialog("close");
+    updateTotalCounts();
 }
 
 function updateTotalCounts() {
