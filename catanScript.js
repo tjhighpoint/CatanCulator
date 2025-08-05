@@ -22,6 +22,9 @@ var pointsToWin = 13;
 //Set to false to show the dice-section for tracking stats on dice-rolls. Default is disabled.
 var disableDice = true;
 
+//Metropolis owners - which player currently owns which of the 3 metropolises
+var metropolisOwners = {};
+
 //Set to true to enable numPad section - not currently working. Idea was that on iPad doing the
 //press-hold to subtract number from a cell is not reliable so wanted to show a numPad UI to let user
 //directly increment/decrement a cell value and hit Save
@@ -78,7 +81,7 @@ $(function () {
             abbrev: playerAbbrevs[index],
             settlementCount: 0,
             cityCount: 0,
-            metropolisCount: 0,
+            metropolisArray: [],
             activeKnightCount: 0,
             victoryPoints: 0,
             hasMerchant: false,
@@ -125,7 +128,7 @@ $(function () {
     newGame();
 
     //TEST DICE ROLLS
-    var testRolls = true;
+    var testRolls = false;
     if (testRolls) {
         for (i=0; i<500000; i++) {
           var colorNum = Math.floor(Math.random() * 6) + 1;   
@@ -237,18 +240,27 @@ function newGame() {
     $.each(players, function (index, player) {
         player.settlementCount = 1;
         player.cityCount = 1;
-        player.metropolisCount = 0;
         player.activeKnightCount = 0;
         player.victoryPoints = 0;
         player.hasMerchant = false;
         player.hasLongestRoad = false;
     });
 
+    resetMetropolisOwners();
+    
     resetElapsedTime();
     
     showBoard(true);
     
     updateBoard();
+}
+
+function resetMetropolisOwners() {
+    metropolisOwners = {
+        yellow: null,
+        blue: null,
+        green: null
+    }
 }
 
 //Show frequency-dialog when button clicked
@@ -423,11 +435,7 @@ function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
                 targetPlayer.activeKnightCount+= increment;
             break;
         case 3:
-            if (increment == -1 && targetPlayer.metropolisCount == 0) {
-                alert("Sorry, you have no Metropolises left!");
-            }            
-            else            
-                targetPlayer.metropolisCount+= increment;
+            updateMetropolisCounts(targetPlayer, increment);
             break;
         case 4:
             targetPlayer.victoryPoints+= increment;
@@ -454,6 +462,54 @@ function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
     decInProgress = false;
 } 
 
+function updateMetropolisCounts(targetPlayer, increment) {
+    if (increment == -1) {
+        var myMetros = [];
+        if (metropolisOwners.yellow == targetPlayer)
+            myMetros.push("yellow");
+        if (metropolisOwners.blue == targetPlayer)
+            myMetros.push("blue");
+        if (metropolisOwners.green == targetPlayer)
+            myMetros.push("green");
+        
+        if (myMetros.length == 0) {
+            alert("Sorry, you have no Metropolises to remove!");
+        }            
+        //If only 1 metro, remove targetPlayer as owner
+        else if (myMetros.length == 1) {
+            metropolisOwners[myMetros[0]) = null;
+        }
+        //Else show my metros so user can choose which one to remove
+        else {
+            showMetros(targetPlayer, increment);
+        }
+    }
+    else {
+        showMetros(targetPlayer, increment);
+    }
+}
+
+function showMetros(targetPlayer, increment) {
+    $("#divMetro_yellow").hide();
+    $("#divMetro_blue").hide();
+    $("#divMetro_green").hide();
+
+    for each (var color in metropolisOwners) {
+        var divColor = "#divMetro_" + color;
+        if (increment == 1 || metropolisOwners[color] == targetPlayer) {
+            $(divColor).show();
+        }
+        $(divColor + "_name").text = increment == -1 ? "" : targetPlayer.firstName;
+    }
+    
+    $("#divMetroSelector").show();
+}
+
+function updateMetropolis(color, targetPlayer) {
+    metropolisOwners[color] = targetPlayer;
+    $("#div_MetroSelector").hide();
+}
+
 function updateTotalCounts() {
     settlementCount = 0;
     cityCount = 0;
@@ -468,11 +524,13 @@ function updateTotalCounts() {
         cityCount += player.cityCount;
         activeKnightCount  += player.activeKnightCount;
 
+        var playerMetropolisCount = getMetropolisCount(player);
+        
         player.totalPoints = 
             player.settlementCount +
             (player.cityCount * 2) +
             player.victoryPoints +
-            (player.metropolisCount * 2) +  //counting Metropolis as its own 2-pointer on a 2-point city, vs. a 4-point entity
+            (playerMetropolisCount * 2) +  //counting Metropolis as its own 2-pointer on a 2-point city, vs. a 4-point entity
             (player.hasMerchant ? 1 : 0) +
             (player.hasLongestRoad ? 2 : 0);   
             
@@ -499,6 +557,15 @@ function updateTotalCounts() {
     };
 }
 
+function getMetropolisCount(player) {
+    var playerMetropolisCount = 0;
+    for each (var color in metropolisOwners) {
+        if (metropolisOwners[color] == player) {
+            playerMetropolisCount++;
+        }
+    }
+    return playerMetropolisCount;
+}
 
 function playSound(filename) {
     var sound = new Audio(filename);
@@ -521,8 +588,10 @@ function barbarianAttack() {
     if (!totalCounts.isProtected) {
         $.each(players, function (index, player) {
             if (player.activeKnightCount == totalCounts.lowestActiveKnightCount) {
+                var playerMetropolisCount = getMetropolisCount(player);
+                
                 //If this player has any un-metro'd city make them downgrade a City to a Settlement
-                if ( (player.cityCount > 0) && (player.metropolisCount < player.cityCount) ) {
+                if ( (player.cityCount > 0) && (playerMetropolisCount < player.cityCount) ) {
                     player.cityCount--;
                     player.settlementCount++;
                     barbarianLoserPlayers.push(player);
@@ -668,7 +737,8 @@ function updateBoard() {
                     playerCol.text(player.activeKnightCount.toString());
                     break;
                 case "metropolis":
-                    playerCol.text(player.metropolisCount.toString());
+                    var playerMetropolisCount = getMetropolisCount(player);
+                    playerCol.text(playerMetropolisCount.toString());
                     break;
                 case "victoryPoints":
                     playerCol.text(player.victoryPoints.toString());
