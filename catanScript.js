@@ -192,7 +192,7 @@ function selectPlayers() {
     var defaultMax = 4;
     var ul = '<ul id="playerList">';
     $.each(defaultPlayerNames, function (index, playerName) {
-        var checked = --defaultMax <= 0 ? "" : "checked";
+        var checked = --defaultMax < 0 ? "" : "checked";
         var chkbox = '<input type="checkbox"' + checked + '/>';
         ul+= "<li>" + chkbox + "<span>" + playerName + "</span></li>";
     });
