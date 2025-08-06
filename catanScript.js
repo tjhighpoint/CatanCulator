@@ -1,6 +1,6 @@
 //TODO - want a Settings button on UI to set up players, toggle switches, etc
 
-var startTime = new Date();
+var elapsedTimeSecs = 0;
 
 //Add/remove player names here as needed
 //More than 4 will appear as abbreviations only
@@ -718,7 +718,7 @@ function rollDice() {
 }
 
 function resetElapsedTime() {
-    startTime = new Date();
+    elapsedTimeSecs = 0;
     setInterval(function() {
       updateElapsedTime();
     }, 1000);
@@ -726,9 +726,7 @@ function resetElapsedTime() {
 
 function updateElapsedTime() {
     if (!isClockEnabled) return;
-    var now = Date.now();
-    var elapsedTimeMs = now - startTime;
-    var elapsedTimeSec = elapsedTimeMs / 1000;
+    var elapsedTimeSecs++;
     var elapsedTimeH = Math.floor(elapsedTimeSec / 3600);
     var elapsedTimeM = Math.floor( (elapsedTimeSec % 3600) / 60);
     var elapsedTimeS = Math.floor( (elapsedTimeSec % 3600) % 60);
@@ -737,6 +735,7 @@ function updateElapsedTime() {
 
 function toggleClockState() {
     isClockEnabled = !isClockEnabled;
+    $("#elapsedTime").css("color", isClockEnabled ? "white" : "red");
 }
 
 //Update the UI using the latest underlying data
