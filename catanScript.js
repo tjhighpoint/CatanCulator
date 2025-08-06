@@ -211,7 +211,7 @@ function selectPlayers() {
 function assignPlayers() {
     //Set gamePlayers from selected players
     gamePlayerNames = [];
-    $('#playerList li').each function(index, li) {
+    $('#playerList li').each(function(index, li) {
         var chkBox = $(li).find("input [type='checkbox']");
         if ($(chkBox.prop("checked"))) {
             var span = $(li).find("span");
