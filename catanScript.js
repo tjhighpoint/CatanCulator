@@ -194,7 +194,7 @@ function selectPlayers() {
     $.each(defaultPlayerNames, function (index, playerName) {
         var checked = --defaultMax == 0 ? "" : "checked";
         var chkbox = '<input type="checkbox" style="margin-right: 10px" ' + checked + '/>';
-        ul+= "<li>" + checkbox + "<span>" + playerName + "</span></li>";
+        ul+= "<li>" + chkbox + "<span>" + playerName + "</span></li>";
     });
 
     //Add a few lines for new players
