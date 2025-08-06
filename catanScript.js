@@ -182,6 +182,7 @@ $(function () {
 });
 
 function toggleSettingsState() {
+    $("#divSettings").show();
 }
 
 function selectPlayers() {
