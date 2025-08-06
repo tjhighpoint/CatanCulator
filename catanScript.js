@@ -169,16 +169,24 @@ function toggleSettingsState() {
 }
 
 function selectPlayers() {
-    var defaultMax = 4;
     var ul = '<ul id="playerList">';
     $.each(defaultPlayerNames, function (index, playerName) {
-        var checked = --defaultMax < 0 ? "" : "checked";
+        var checked = gamePlayerNames.includes(playerName) ? "checked" : "";
         var chkbox = '<input type="checkbox"' + checked + '/>';
         ul+= "<li>" + chkbox + "<span>" + playerName + "</span></li>";
     });
 
     //Add a few lines for new players
-    for (var i = 0; i < 4; i++) {
+    var maxAddedPlayers = 4;
+        
+    $.each(gamePlayerNames, function (index, playerName) {
+        if (!defaultPlayerNames.includes(playerName)) {
+            ul+= '<li><input type="checkbox" checked/> <input type="text" value="' + playerName + '"'/></li>';  
+            maxAddedPlayers--;
+        }
+    });
+    
+    for (var i = 0; i < maxAddedPlayers; i++) {
         ul+= '<li><input type="checkbox"/> <input type="text"/></li>';    
     }
     ul+= "</ul>";
