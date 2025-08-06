@@ -217,7 +217,7 @@ function assignPlayers() {
     gamePlayerNames = [];
     $('#playerList li').each(function(index, li) {
         var chkBox = $(li).find('input:checkbox');
-        if ($(chkBox).prop("checked"))) {
+        if ($(chkBox).prop("checked")) {
             var span = $(li).find("span");
             var textBox = $(li).find('input [type="text"]');
             if (span.length > 0) {
