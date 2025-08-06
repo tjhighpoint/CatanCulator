@@ -5,14 +5,15 @@ var elapsedTimeSecs = 0;
 //Add/remove player names here as needed
 //More than 4 will appear as abbreviations only
 //Will be automatically sorted in UI
-var playerNames = [
+var defaultPlayerNames = [
     "Tim Johnson",
     "Rhonda Johnson",
-    //"Michael Johnson"
-    //"Devony DiMattia"
     "Kyle Szuta",
-    "Jessie Johnson"
+    "Jessie Johnson",
+    "Michael Johnson",
+    "Devony DiMattia"
 ]
+var gamePlayerNames = [];
 var players;
 var selectedPlayer;
 
@@ -59,7 +60,16 @@ var isClockEnabled = true;
 //TODO: support other objects used in expansions and extensions 
 
 $(function () {
-
+    $("#divGamePlayers").dialog({
+        autoOpen: false,
+        width: 650,
+        modal: true,
+        closeOnEscape: true,
+        resizable: false,
+        draggable: true,
+        title: 'SELECT PLAYERS',
+    });
+    
     $("#divMetroSelector").dialog({
         autoOpen: false,
         width: 650,
@@ -67,7 +77,6 @@ $(function () {
         closeOnEscape: true,
         resizable: false,
         draggable: true,
-        //dialogClass: 'popup1',
         title: 'CHOOSE A METROPOLIS COLOR',
     });
     
@@ -171,6 +180,12 @@ $(function () {
         debugger;
     }
 });
+
+function toggleSettingsState() {
+}
+
+function selectPlayers() {
+}
 
 function setupEmptyBoard() {        
     $(".board").append("<thead><tr><th></th></tr></thead><tbody></tbody>");
