@@ -181,7 +181,7 @@ function selectPlayers() {
         
     $.each(gamePlayerNames, function (index, playerName) {
         if (!defaultPlayerNames.includes(playerName)) {
-            ul+= '<li><input type="checkbox" checked/> <input type="text" value="' + playerName + '"'/></li>';  
+            ul+= '<li><input type="checkbox" checked/> <input type="text" value="' + playerName + '"/></li>';  
             maxAddedPlayers--;
         }
     });
