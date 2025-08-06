@@ -534,7 +534,7 @@ function updateMetropolisCounts(color) {
 }
 
 function getMetropolisDiv(targetPlayer) {
-    var div = '<div style="display:flex; align-items:center">';
+    var div = '<div style="display:flex;   justify-content: space-around; align-items:center">';
     
     $.each(metropolisOwners, function(color, assignedPlayer) {
         if (assignedPlayer == targetPlayer) {
