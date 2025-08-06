@@ -15,6 +15,16 @@ table, th, td {
     border: 1px solid black;
 }
 
+.metroYellow {
+    background-color: #f9e812; 
+}
+.metroBlue {
+   background-color: #007bff; 
+}
+.metroGreen {
+    background-color: #0eb75e; 
+}
+
 .board {
     margin-top: 20px;
 }
