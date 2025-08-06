@@ -216,14 +216,14 @@ function assignPlayers() {
     //Set gamePlayers from selected players
     gamePlayerNames = [];
     $('#playerList li').each(function(index, li) {
-        var chkBox = $(li).find("input [type='checkbox']");
-        if ($(chkBox.prop("checked"))) {
+        var chkBox = $(li).find('input:checkbox');
+        if ($(chkBox).prop("checked"))) {
             var span = $(li).find("span");
-            var textBox = $(li).find("input [type='text']");
-            if (span != undefined) {
+            var textBox = $(li).find('input [type="text"]');
+            if (span.length > 0) {
                 gamePlayerNames.push(span.text());
             }
-            else if (textBox != undefined) {
+            else if (textBox.length > 0) {
                 gamePlayerNames.push(textBox.text());
             }
         }
