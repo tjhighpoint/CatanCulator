@@ -490,7 +490,7 @@ function showMetropolisSelector(targetPlayer, increment) {
             myMetros.push("blue");
         if (metropolisOwners.green == targetPlayer)
             myMetros.push("green");
-        
+
         if (myMetros.length == 0) {
             alert("Sorry, you have no Metropolises to remove!");
         }            
@@ -500,6 +500,7 @@ function showMetropolisSelector(targetPlayer, increment) {
         }
         //Else show my metros so user can choose which one to remove
         else {
+            selectedPlayer = null; //To null out owner player for selected color
             showMetros(targetPlayer, increment);
         }
     }
@@ -508,7 +509,7 @@ function showMetropolisSelector(targetPlayer, increment) {
     }
 }
 
-function showMetros(targetPlayer, increment) {
+function showMetros(targetPlayer, increment, newPlayer) {
     $("#divMetro_yellow").hide();
     $("#divMetro_blue").hide();
     $("#divMetro_green").hide();
