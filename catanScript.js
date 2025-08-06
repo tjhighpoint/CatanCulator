@@ -113,38 +113,14 @@ $(function () {
         diceColorFrequencies[index]++;
     });
 
+    //One-time start of clock timer
+    setInterval(function() {
+      updateElapsedTime();
+    }, 1000);
+    
     resetPlayers();
     setupEmptyBoard();
     newGame();
-
-    //TEST DICE ROLLS
-    var testRolls = false;
-    if (testRolls) {
-        for (i=0; i<500000; i++) {
-          var colorNum = Math.floor(Math.random() * 6) + 1;   
-          var redNum = Math.floor(Math.random() * 6) + 1;  
-          var stdNum = Math.floor(Math.random() * 6) + 1;
-          var total = redNum + stdNum;
-         
-          index = colorNum < 4 ? 0 : colorNum == 4 ? 3 : colorNum == 5 ? 2 : 1; 
-          diceColorFrequencies[index]++;
-          diceNumFrequencies[total - 2]++;
-        };
-    
-        var totalRolls = 0;
-        for (i=0; i<11; i++) {
-            totalRolls += diceNumFrequencies[i];
-        };
-        for (i=0; i<11; i++) {
-            var cnt = diceNumFrequencies[i];
-            var pct = cnt / totalRolls * 100.0; 
-            pct = Math.trunc(pct * 10) / 10;
-            var index = i < 6 ? i : 6 - (i % 6);
-            var expectedPct = expectedDiceNumFrequencies[index];
-            console.log( (i+2).toString() + ". " + pct.toString() + "% (expected = " + expectedPct.toString() + "%)");
-        }
-        debugger;
-    }
 });
 
 function resetPlayers() {
@@ -327,11 +303,8 @@ function newGame() {
     });
 
     resetMetropolisOwners();
-    
     resetElapsedTime();
-    
     showBoard(true);
-    
     updateBoard();
 }
 
@@ -784,9 +757,6 @@ function rollDice() {
 
 function resetElapsedTime() {
     elapsedTimeSecs = 0;
-    setInterval(function() {
-      updateElapsedTime();
-    }, 1000);
 }
 
 function updateElapsedTime() {
