@@ -533,6 +533,19 @@ function updateMetropolisCounts(color) {
     updateBoard();
 }
 
+function getMetropolisDiv(player) {
+    var div = '<div style="display:flex; align-items:center">';
+    
+    $.each(metropolisOwners, function(color, assignedPlayer) {
+        if (assignedPlayer == targetPlayer) {
+            var assignedMetro = '<div class="metro"' + color + ' style="margin-left: 5px; width:15px; height:15px"></div>";
+            div+= assignedMetro;
+        }
+    });
+    div+= "</div>";
+    return div;
+}
+
 function updateTotalCounts() {
     settlementCount = 0;
     cityCount = 0;
@@ -761,8 +774,8 @@ function updateBoard() {
                     playerCol.text(player.activeKnightCount.toString());
                     break;
                 case "metropolis":
-                    var playerMetropolisCount = getMetropolisCount(player);
-                    playerCol.text(playerMetropolisCount.toString());
+                    var playerMetropolisDiv = getMetropolisDiv(player);
+                    playerCol.html(playerMetropolisDiv);
                     break;
                 case "victoryPoints":
                     playerCol.text(player.victoryPoints.toString());
