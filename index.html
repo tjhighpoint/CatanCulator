@@ -263,17 +263,18 @@
         </div>
 
         <div>
-            <table class="board"></table>
             <div style="display:inline; float:right margin-right:50px">
                 <div><label onclick="toggleSettingsState();">Settings</label></div>
                 <div id="divSettings" style="display:none; margin-left:10px">
-                    <ul>
+                    <ul style="list-style-type: none; text-align:left; padding:12px">
                         <li onclick="selectPlayers();">Players</li>
                         <li>Select GameType</li>
                         <li>Enable Dice Roller</li>
                     </ul>
                 </div>
             </div>
+            
+            <table class="board"></table>
         </div>
 
         <div id="mainButtons" class="actionButtons">
