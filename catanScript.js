@@ -13,7 +13,7 @@ var defaultPlayerNames = [
     "Michael Johnson",
     "Devony DiMattia"
 ]
-var gamePlayerNames = [];
+var gamePlayerNames = defaultPlayerNames;
 var players;
 var selectedPlayer;
 
@@ -83,7 +83,7 @@ $(function () {
     //Create player objects with full names or abbreviations-only if > 4
     players = [];
     playerAbbrevs = [];
-    $.each(playerNames.sort(), function (index, playerName) {
+    $.each(gamePlayerNames.sort(), function (index, playerName) {
         var parts = playerName.split(" ");
         var firstName = parts[0];
         var lastNameLetter = parts.length == 1 ? "" : parts[1].substr(0,1);
@@ -185,11 +185,40 @@ function toggleSettingsState() {
 }
 
 function selectPlayers() {
+    var defaultMax = 4;
+    var ul = '<ul id="playerList">';
+    $.each(defaultPlayerNames, function (index, playerName) {
+        var checked = --defaultMax == 0 ? "" : "checked";
+        var chkbox = '<input type="checkbox" style="margin-right: 10px" ' + checked + '/>';
+        ul+= "<li>" + checkbox + "<span>" + playerName + "</span></li>";
+    });
+
+    //Add a few lines for new players
+    for (var i = 0; i < 4; i++) {
+        ul+= '<li><input type="checkbox" style="margin-right: 10px"/> <input type="text" style="width: 30px"/></li>';    
+    }
+    ul+= "</ul>";
+    
+    $("#divPlayerList").html(ul);
     $("#divPlayerSelector").dialog("open");
 }
 
 function assignPlayers() {
     //Set gamePlayers from selected players
+    gamePlayerNames = [];
+    $.each($('#playerList li'), function(li) {
+        var chkBox = $(li).find("input [type='checkbox']");
+        if ($(chkBox.prop("checked"))) {
+            var span = $(li).find("span");
+            var textBox = $(li).find("input [type='text']");
+            if (span != undefined) {
+                gamePlayerNames.push(span.text());
+            }
+            else if (textBox != undefined) {
+                gamePlayerNames.push(textBox.text());
+            }
+        }
+    });
 }
 
 function setupEmptyBoard() {        
@@ -224,7 +253,7 @@ function setupEmptyBoard() {
     $(longestRoadRow).find("td:not(:first-child)").append('<img width="70px">');
 
     //Adjust column widths based on number of players
-    if (playerNames.length > 4) {
+    if (gamePlayerNames.length > 4) {
         $(".board td:first-child").css("width", "260px");
         $(".board td:not(:first-child)").css("width", "104px");
     }
