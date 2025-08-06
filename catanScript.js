@@ -270,9 +270,9 @@ function newGame() {
 
 function resetMetropolisOwners() {
     metropolisOwners = {
-        yellow: null,
-        blue: null,
-        green: null
+        Yellow: null,
+        Blue: null,
+        Green: null
     }
 }
 
@@ -484,12 +484,12 @@ function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
 function showMetropolisSelector(targetPlayer, increment) {
     if (increment == -1) {
         var myMetros = [];
-        if (metropolisOwners.yellow == targetPlayer)
-            myMetros.push("yellow");
-        if (metropolisOwners.blue == targetPlayer)
-            myMetros.push("blue");
-        if (metropolisOwners.green == targetPlayer)
-            myMetros.push("green");
+        if (metropolisOwners.Yellow == targetPlayer)
+            myMetros.push("Yellow");
+        if (metropolisOwners.Blue == targetPlayer)
+            myMetros.push("Blue");
+        if (metropolisOwners.Green == targetPlayer)
+            myMetros.push("Green");
 
         if (myMetros.length == 0) {
             alert("Sorry, you have no Metropolises to remove!");
@@ -510,12 +510,12 @@ function showMetropolisSelector(targetPlayer, increment) {
 }
 
 function showMetros(targetPlayer, increment, newPlayer) {
-    $("#divMetro_yellow").hide();
-    $("#divMetro_blue").hide();
-    $("#divMetro_green").hide();
+    $("#divMetroYellow").hide();
+    $("#divMetroBlue").hide();
+    $("#divMetroGreen").hide();
 
     $.each(metropolisOwners, function(color, assignedPlayer) {
-        var divColor = "#divMetro_" + color;
+        var divColor = "#divMetro" + color;
         if (increment == 1 || assignedPlayer == targetPlayer) {
             $(divColor).show();
         }
@@ -538,7 +538,7 @@ function getMetropolisDiv(targetPlayer) {
     
     $.each(metropolisOwners, function(color, assignedPlayer) {
         if (assignedPlayer == targetPlayer) {
-            var assignedMetro = '<div class="metro"' + color + ' style="margin: 0 0 0 5px; width:15px; height:15px"></div>';
+            var assignedMetro = '<div class="metro' + color + '" style="margin: 0 0 0 5px; width:15px; height:15px"></div>';
             div+= assignedMetro;
         }
     });
