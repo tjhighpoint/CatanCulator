@@ -451,7 +451,7 @@ function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
             break;
             
         case 3:
-            updateMetropolisCounts(selectedPlayer, increment);
+            showMetropolisSelector(selectedPlayer, increment);
             break;
             
         case 4:
@@ -481,7 +481,7 @@ function updatePlayerCell (cell, increment, shouldShowNumPad, numPadValue) {
     decInProgress = false;
 } 
 
-function updateMetropolisCounts(targetPlayer, increment) {
+function showMetropolisSelector(targetPlayer, increment) {
     if (increment == -1) {
         var myMetros = [];
         if (metropolisOwners.yellow == targetPlayer)
@@ -524,7 +524,7 @@ function showMetros(targetPlayer, increment) {
     $("#divMetroSelector").dialog("open");
 }
 
-function updateMetropolis(color) {
+function updateMetropolisCounts(color) {
     metropolisOwners[color] = selectedPlayer;
     $("#divMetroSelector").dialog("close");
     updateTotalCounts();
