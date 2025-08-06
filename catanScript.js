@@ -60,7 +60,7 @@ var isClockEnabled = true;
 //TODO: support other objects used in expansions and extensions 
 
 $(function () {
-    $("#divGamePlayers").dialog({
+    $("#divPlayerSelector").dialog({
         autoOpen: false,
         width: 650,
         modal: true,
@@ -185,6 +185,11 @@ function toggleSettingsState() {
 }
 
 function selectPlayers() {
+    $("#divPlayerSelector").dialog("open");
+}
+
+function assignPlayers() {
+    //Set gamePlayers from selected players
 }
 
 function setupEmptyBoard() {        
