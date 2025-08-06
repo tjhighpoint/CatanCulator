@@ -538,7 +538,7 @@ function getMetropolisDiv(targetPlayer) {
     
     $.each(metropolisOwners, function(color, assignedPlayer) {
         if (assignedPlayer == targetPlayer) {
-            var assignedMetro = '<div class="metro' + color + '" style="margin: 0 0 0 5px; width:15px; height:15px"></div>';
+            var assignedMetro = '<div class="metro' + color + '" style="margin: 0 0 0 22px; width:32px; height:32px"></div>';
             div+= assignedMetro;
         }
     });
