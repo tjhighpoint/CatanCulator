@@ -726,7 +726,7 @@ function resetElapsedTime() {
 
 function updateElapsedTime() {
     if (!isClockEnabled) return;
-    var elapsedTimeSecs++;
+    elapsedTimeSecs++;
     var elapsedTimeH = Math.floor(elapsedTimeSec / 3600);
     var elapsedTimeM = Math.floor( (elapsedTimeSec % 3600) / 60);
     var elapsedTimeS = Math.floor( (elapsedTimeSec % 3600) % 60);
