@@ -79,40 +79,6 @@ $(function () {
         draggable: true,
         title: 'CHOOSE A METROPOLIS COLOR',
     });
-    
-    //Create player objects with full names or abbreviations-only if > 4
-    players = [];
-    playerAbbrevs = [];
-    $.each(gamePlayerNames.sort(), function (index, playerName) {
-        var parts = playerName.split(" ");
-        var firstName = parts[0];
-        var lastNameLetter = parts.length == 1 ? "" : parts[1].substr(0,1);
-
-        var abbrev = firstName.substr(0,1);
-        if (playerAbbrevs.includes(abbrev)) {
-            var both = abbrev+lastNameLetter;
-            if (playerAbbrevs.includes(both)) {
-                both = abbrev + (index+1).toString();
-            }
-            abbrev = both;
-        }
-        playerAbbrevs.push(abbrev);
-
-        players.push({
-            index: index + 1, 
-            name: playerName,
-            firstName: firstName, 
-            abbrev: playerAbbrevs[index],
-            settlementCount: 0,
-            cityCount: 0,
-            metropolisArray: [],
-            activeKnightCount: 0,
-            victoryPoints: 0,
-            hasMerchant: false,
-            hasLongestRoad: false,
-            totalPoints: 3
-        })
-    });
 
     //Event handler for number-dice clicks
     $(".rolls .diceNum").click(function(e) {
@@ -147,8 +113,8 @@ $(function () {
         diceColorFrequencies[index]++;
     });
 
+    resetPlayers();
     setupEmptyBoard();
-
     newGame();
 
     //TEST DICE ROLLS
@@ -180,6 +146,44 @@ $(function () {
         debugger;
     }
 });
+
+function resetPlayers() {
+    $(".board").html("");
+    
+    //Create player objects with full names or abbreviations-only if > 4
+    players = [];
+    playerAbbrevs = [];
+    $.each(gamePlayerNames.sort(), function (index, playerName) {
+        var parts = playerName.split(" ");
+        var firstName = parts[0];
+        var lastNameLetter = parts.length == 1 ? "" : parts[1].substr(0,1);
+
+        var abbrev = firstName.substr(0,1);
+        if (playerAbbrevs.includes(abbrev)) {
+            var both = abbrev+lastNameLetter;
+            if (playerAbbrevs.includes(both)) {
+                both = abbrev + (index+1).toString();
+            }
+            abbrev = both;
+        }
+        playerAbbrevs.push(abbrev);
+
+        players.push({
+            index: index + 1, 
+            name: playerName,
+            firstName: firstName, 
+            abbrev: playerAbbrevs[index],
+            settlementCount: 0,
+            cityCount: 0,
+            metropolisArray: [],
+            activeKnightCount: 0,
+            victoryPoints: 0,
+            hasMerchant: false,
+            hasLongestRoad: false,
+            totalPoints: 3
+        })
+    });
+}
 
 function toggleSettingsState() {
     if ($("#divSettings").is(":visible"))
@@ -226,7 +230,11 @@ function assignPlayers() {
     });
 
     $("#divPlayerSelector").dialog("close");
+
+    //Reset board with selected players
+    resetPlayers();
     setupEmptyBoard();
+    newGame();
 }
 
 function setupEmptyBoard() {        
