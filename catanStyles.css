@@ -15,26 +15,20 @@ table, th, td {
     border: 1px solid black;
 }
 
-.metroYellow {
-    background-color: #f9e812; 
+divMetroSelector div {
     border: 1px solid black; 
-    border-radius:35px; 
+    border-radius:25px; 
     width: 75px; 
     height: 75px; 
+}
+.metroYellow {
+    background-color: #f9e812; 
 }
 .metroBlue {
     background-color: #007bff;
-    border: 1px solid black; 
-    border-radius:35px; 
-    width: 75px; 
-    height: 75px; 
 }
 .metroGreen {
     background-color: #0eb75e; 
-    border: 1px solid black; 
-    border-radius:35px; 
-    width: 75px; 
-    height: 75px; 
 }
 
 .board {
