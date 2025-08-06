@@ -21,7 +21,7 @@ table, th, td {
     border-radius:35px; 
     width: 75px; 
     height: 75px; 
-    margin: 10px;    
+    margin: 7px;    
 }
 .metroBlue {
     background-color: #007bff;
@@ -29,7 +29,7 @@ table, th, td {
     border-radius:35px; 
     width: 75px; 
     height: 75px; 
-    margin: 10px;     
+    margin: 7px;     
 }
 .metroGreen {
     background-color: #0eb75e; 
@@ -37,7 +37,7 @@ table, th, td {
     border-radius:35px; 
     width: 75px; 
     height: 75px; 
-    margin: 10px;    
+    margin: 7px;    
 }
 
 .board {
