@@ -182,7 +182,10 @@ $(function () {
 });
 
 function toggleSettingsState() {
-    $("#divSettings").show();
+    if ($("#divSettings").is(":visible"))
+        $("#divSettings").hide();
+    else
+        $("#divSettings").show();
 }
 
 function selectPlayers() {
@@ -202,6 +205,7 @@ function selectPlayers() {
     
     $("#divPlayerList").html(ul);
     $("#divPlayerSelector").dialog("open");
+    toggleSettingsState();
 }
 
 function assignPlayers() {
@@ -220,6 +224,8 @@ function assignPlayers() {
             }
         }
     });
+
+    $("#divPlayerSelector").dialog("close");
 }
 
 function setupEmptyBoard() {        
