@@ -54,6 +54,8 @@ var curSelectedCell = null;
 var curSelectedDie = null;
 var decInProgress = false;  //Used only for context-menu special case to prevent double-firing
 
+var isClockEnabled = true;
+
 //TODO: support other objects used in expansions and extensions 
 
 $(function () {
@@ -723,6 +725,7 @@ function resetElapsedTime() {
 }
 
 function updateElapsedTime() {
+    if (!isClockEnabled) return;
     var now = Date.now();
     var elapsedTimeMs = now - startTime;
     var elapsedTimeSec = elapsedTimeMs / 1000;
@@ -732,6 +735,9 @@ function updateElapsedTime() {
     $("#elapsedTime").text(String(elapsedTimeH).padStart(2, '0') + ":" + String(elapsedTimeM).padStart(2, '0') + ":" + String(elapsedTimeS).padStart(2, '0'));
 }
 
+function toggleClockState() {
+    isClockEnabled = !isClockEnabled;
+}
 
 //Update the UI using the latest underlying data
 function updateBoard() {
