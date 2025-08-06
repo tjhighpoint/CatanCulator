@@ -521,14 +521,16 @@ function showMetros(targetPlayer, increment, newPlayer) {
         }
         $(divColor + "_name").text((increment == -1 ? "" : assignedPlayer == null ? "(available)" : assignedPlayer.firstName));
     });
-    
+
+    var title = "CLICK TO " + ((increment == 1) ? "ASSIGN A METROPOLIS" : "REMOVE A METROPOLIS");
+    $("#divMetroSelector").dialog("option", "title", title);
     $("#divMetroSelector").dialog("open");
 }
 
 function updateMetropolisCounts(color) {
     metropolisOwners[color] = selectedPlayer;
     $("#divMetroSelector").dialog("close");
-    updateTotalCounts();
+    updateBoard();
 }
 
 function updateTotalCounts() {
