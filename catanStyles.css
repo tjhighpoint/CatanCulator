@@ -22,6 +22,7 @@ ul {
 }
 li span {
     font-size:32px;
+    padding:10px;
 }
 li input[type="text"] {
     font-size:32px;
