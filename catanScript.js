@@ -191,16 +191,16 @@ function selectPlayers() {
 function assignPlayers() {
     //Set gamePlayers from selected players
     gamePlayerNames = [];
-    $('#playerList li').each(function(index, li) {
-        var chkBox = $(li).find('input:checkbox');
+    $('#playerList li').each(function(index, item) {
+        var chkBox = $(item).find('input:checkbox');
         if ($(chkBox).prop("checked")) {
-            var span = $(li).find("span");
-            var textBox = $(li).find('input [type="text"]');
+            var span = $(item).find("span");
+            var textBox = $(item).find('input[type="text"]');
             if (span.length > 0) {
                 gamePlayerNames.push(span.text());
             }
             else if (textBox.length > 0) {
-                gamePlayerNames.push(textBox.text());
+                gamePlayerNames.push(textBox.val());
             }
         }
     });
