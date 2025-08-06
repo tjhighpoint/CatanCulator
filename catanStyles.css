@@ -20,12 +20,21 @@ ul {
     text-align:left; 
     padding:12px;    
 }
+li {
+    padding: 15px;
+}
 li span {
     font-size:32px;
-    padding:10px;
 }
+li input[type="checkbox"] {
+    margin-right:25px;
+    height:40px;
+    width:40px;
+}
+
 li input[type="text"] {
     font-size:32px;
+    width:100px;
 }
 
 .metro {
