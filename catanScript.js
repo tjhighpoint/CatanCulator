@@ -13,7 +13,7 @@ var defaultPlayerNames = [
     "Michael Johnson",
     "Devony DiMattia"
 ]
-var gamePlayerNames = defaultPlayerNames;
+var gamePlayerNames = defaultPlayerNames.slice(0,4);
 var players;
 var selectedPlayer;
 
