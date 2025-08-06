@@ -199,7 +199,7 @@ function selectPlayers() {
 
     //Add a few lines for new players
     for (var i = 0; i < 4; i++) {
-        ul+= '<li><input type="checkbox" style="margin-right: 10px"/> <input type="text" style="width: 30px"/></li>';    
+        ul+= '<li><input type="checkbox"/> <input type="text"/></li>';    
     }
     ul+= "</ul>";
     
