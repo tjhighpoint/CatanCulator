@@ -17,12 +17,27 @@ table, th, td {
 
 .metroYellow {
     background-color: #f9e812; 
+    border: 1px solid black; 
+    border-radius:35px; 
+    width: 75px; 
+    height: 75px; 
+    margin: 10px;    
 }
 .metroBlue {
-   background-color: #007bff; 
+    background-color: #007bff;
+    border: 1px solid black; 
+    border-radius:35px; 
+    width: 75px; 
+    height: 75px; 
+    margin: 10px;     
 }
 .metroGreen {
     background-color: #0eb75e; 
+    border: 1px solid black; 
+    border-radius:35px; 
+    width: 75px; 
+    height: 75px; 
+    margin: 10px;    
 }
 
 .board {
