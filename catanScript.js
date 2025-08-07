@@ -222,7 +222,7 @@ function assignPlayers() {
 }
 
 function setupEmptyBoard() {        
-    $(".board").append('<thead><tr><th onclick="selectPlayers();">Players</th></tr></thead><tbody></tbody>');
+    $(".board").append('<thead><tr><th style="background-color:grey; padding:8px; border: 2px solid black; border-radiuus:12px" onclick="selectPlayers();">Players</th></tr></thead><tbody></tbody>');
     
     //Create player-names row
     $.each(players, function (index, player) {
